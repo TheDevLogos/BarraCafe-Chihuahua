@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#18110d" />
+    <meta name="description" content="Café de especialidad, bebidas frías y recompensas en Chihuahua, Chih." />
+    <title>Café Chihuahua · Hecho para volver</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="page-loader" aria-hidden="true"><span></span></div>
+
+    <header class="site-header" id="inicio">
+      <a href="#inicio" class="brand" aria-label="Café Chihuahua, inicio">
+        <span class="brand-mark">C</span>
+        <span>CAFÉ<br />CHIHUAHUA</span>
+      </a>
+      <nav aria-label="Navegación principal">
+        <a href="#menu">Menú</a>
+        <a href="#cafe">Nuestra barra</a>
+        <a href="#lealtad">Lealtad</a>
+        <a href="#visitanos">Visítanos</a>
+      </nav>
+      <button class="admin-link js-open-admin" type="button"><span class="status-dot"></span> Acceso administración</button>
+      <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false"><i></i><i></i></button>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <video class="hero-video" autoplay muted loop playsinline poster="assets/_.jpeg">
+          <source src="assets/shop.mp4" type="video/mp4" />
+        </video>
+        <div class="hero-shade"></div>
+        <div class="hero-copy reveal">
+          <p class="eyebrow light"><span></span> Café y bebidas frías · Chihuahua, Chih.</p>
+          <h1 id="hero-title">Una pausa<br /><em>bien preparada.</em></h1>
+          <p class="hero-subtitle">Café de especialidad, bebidas para el desierto y una razón para regresar mañana.</p>
+          <div class="hero-actions">
+            <a class="button button-cream" href="#menu">Ver bebidas <b>↘</b></a>
+            <button class="text-button js-play-story" type="button"><span class="play-icon">▶</span> Mira cómo lo hacemos</button>
+          </div>
+        </div>
+        <div class="hero-meta">
+          <span>29° 04′ N</span>
+          <span>·</span>
+          <span>106° 05′ O</span>
+          <span class="hero-scroll">DESLIZA <b>↓</b></span>
+        </div>
+      </section>
+
+      <section class="intro section-pad" id="cafe">
+        <div class="intro-top reveal">
+          <p class="eyebrow"><span></span> Café de todos los días</p>
+          <p class="intro-note">En Chihuahua los días empiezan temprano. Nosotros también.</p>
+        </div>
+        <div class="intro-grid">
+          <h2 class="display reveal">De la molienda<br />a <em>tu momento.</em></h2>
+          <div class="intro-copy reveal">
+            <p>Una barra hecha para el ritmo de la ciudad: espresso intenso, filtrados claros y bebidas frías que sí aguantan el calor.</p>
+            <p>Ven por tu favorito. Quédate por la conversación.</p>
+            <a href="#visitanos" class="arrow-link">Conoce la barra <span>→</span></a>
+          </div>
+        </div>
+        <div class="video-strip">
+          <article class="video-tile tall reveal">
+            <video autoplay muted loop playsinline><source src="assets/Pressing.mp4" type="video/mp4" /></video>
+            <div class="tile-label"><span>01</span><strong>Precisión</strong></div>
+          </article>
+          <article class="video-tile wide reveal">
+            <video autoplay muted loop playsinline><source src="assets/Latte Art.mp4" type="video/mp4" /></video>
+            <div class="tile-label"><span>02</span><strong>Hecho a mano</strong></div>
+          </article>
+          <article class="video-tile tall reveal">
+            <video autoplay muted loop playsinline><source src="assets/V60 cafe.mp4" type="video/mp4" /></video>
+            <div class="tile-label"><span>03</span><strong>Tiempo y origen</strong></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="menu-section section-pad" id="menu">
+        <div class="section-heading reveal">
+          <div>
+            <p class="eyebrow"><span></span> Para pedir sin pensarlo tanto</p>
+            <h2 class="display">Nuestros <em>favoritos.</em></h2>
+          </div>
+          <p>Una selección que cambia con la temporada. Pregunta por la bebida especial de la semana.</p>
+        </div>
+        <div class="product-grid">
+          <article class="product-card product-card--image reveal">
+            <img src="assets/_.jpeg" alt="Preparación de espresso" />
+            <div class="product-overlay"><span>ESPRESSO</span><h3>El doble</h3><p>Intenso, redondo, directo.</p><b>$45</b></div>
+          </article>
+          <article class="product-card reveal">
+            <span class="number">01</span><p class="product-type">CON LECHE</p><h3>Latte de la casa</h3><p>Espresso, leche sedosa y una taza para bajar el ritmo.</p><div class="product-foot"><b>$65</b><button aria-label="Ver Latte de la casa" class="js-product">↗</button></div>
+          </article>
+          <article class="product-card product-card--dark reveal">
+            <span class="number">02</span><p class="product-type">EN FRÍO</p><h3>Cold brew<br />de vainilla</h3><p>Frío, suave y listo para los días largos.</p><div class="product-foot"><b>$75</b><button aria-label="Ver Cold brew de vainilla" class="js-product">↗</button></div>
+          </article>
+          <article class="product-card product-card--accent reveal">
+            <span class="number">03</span><p class="product-type">DE TEMPORADA</p><h3>Chai<br />del desierto</h3><p>Especias, leche y un toque inesperado.</p><div class="product-foot"><b>$72</b><button aria-label="Ver Chai del desierto" class="js-product">↗</button></div>
+          </article>
+        </div>
+        <a href="#visitanos" class="menu-link reveal">El menú completo está en barra <span>↗</span></a>
+      </section>
+
+      <section class="loyalty" id="lealtad">
+        <div class="loyalty-video-wrap">
+          <video autoplay muted loop playsinline class="loyalty-video"><source src="assets/coffe drinks.mp4" type="video/mp4" /></video>
+          <div class="loyalty-video-shade"></div>
+        </div>
+        <div class="loyalty-content section-pad">
+          <div class="loyalty-intro reveal">
+            <p class="eyebrow light"><span></span> Círculo Café Chihuahua</p>
+            <h2 class="display light">Tu siguiente bebida<br />empieza <em>aquí.</em></h2>
+            <p>Compra bebidas participantes, junta sellos y disfruta una bebida de cortesía. Sin tarjeta física; todo vive en tu celular.</p>
+            <button type="button" class="button button-cream js-join">Quiero unirme <b>↘</b></button>
+          </div>
+          <div class="loyalty-card reveal" aria-label="Vista previa de tarjeta digital de lealtad">
+            <div class="card-top"><span>CAFÉ CHIHUAHUA</span><span>MI TARJETA</span></div>
+            <p class="card-name">HOLA, <b>FERNANDA</b></p>
+            <div class="stamps" aria-label="7 de 10 sellos">
+              <i class="filled">✦</i><i class="filled">✦</i><i class="filled">✦</i><i class="filled">✦</i><i class="filled">✦</i><i class="filled">✦</i><i class="filled">✦</i><i>✦</i><i>✦</i><i class="reward">☕</i>
+            </div>
+            <div class="card-bottom"><span>7 / 10 SELLOS</span><span>FALTAN 3 PARA TU BEBIDA</span></div>
+            <div class="card-wallet"><span class="wallet-g">G</span><span>Agregar a Google Wallet</span><b>→</b></div>
+          </div>
+        </div>
+        <div class="loyalty-benefits section-pad">
+          <p>EL CÍRCULO TE RECOMPENSA</p>
+          <div><span>01</span><strong>Un sello por cada bebida participante</strong></div>
+          <div><span>02</span><strong>Un regalo especial en tu cumpleaños</strong></div>
+          <div><span>03</span><strong>Acceso primero a bebidas de temporada</strong></div>
+        </div>
+      </section>
+
+      <section class="crm section-pad" id="administracion">
+        <div class="crm-copy reveal">
+          <p class="eyebrow"><span></span> Detrás de la barra</p>
+          <h2 class="display">Lealtad que<br /><em>sí entiende</em><br />a tu clientela.</h2>
+          <p>Un programa que el negocio puede ajustar sin depender de desarrollo: define qué productos acumulan, crea recompensas y mide las campañas que sí regresan clientes.</p>
+          <button type="button" class="button button-dark js-open-admin">Explorar panel CRM <b>↗</b></button>
+        </div>
+        <div class="crm-dashboard reveal" aria-label="Vista previa del CRM">
+          <div class="dash-browser"><span></span><span></span><span></span><b>caféchihuahua.mx / administración</b></div>
+          <div class="dash-body">
+            <aside><strong>CC</strong><a class="active">Resumen</a><a>Clientes</a><a>Campañas</a><a>Recompensas</a><a>Reportes</a><small>ADMIN</small></aside>
+            <div class="dash-main">
+              <div class="dash-head"><div><p>Buenos días, equipo</p><h3>Esta semana en la barra</h3></div><button>+ Nueva campaña</button></div>
+              <div class="metrics"><div><small>VENTAS</small><strong>$24,860</strong><em>↑ 12.4%</em></div><div><small>TICKET PROMEDIO</small><strong>$118</strong><em>↑ 4.8%</em></div><div><small>CLIENTES RECURRENTES</small><strong>68%</strong><em>↑ 9.1%</em></div></div>
+              <div class="dash-charts"><div class="chart"><p>Ventas por día</p><div class="bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span>LUN &nbsp; MAR &nbsp; MIÉ &nbsp; JUE &nbsp; VIE &nbsp; SÁB &nbsp; DOM</span></div><div class="campaign"><p>Campaña activa</p><strong>Frío otra vez</strong><span>Cold brew + sello doble</span><b>128 canjes</b></div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="visit section-pad" id="visitanos">
+        <div class="visit-image reveal"><video autoplay muted loop playsinline><source src="assets/shop.mp4" type="video/mp4" /></video></div>
+        <div class="visit-copy reveal">
+          <p class="eyebrow"><span></span> Encuéntranos</p>
+          <h2 class="display">Una mesa, una charla,<br /><em>un buen café.</em></h2>
+          <div class="visit-details"><div><small>CIUDAD</small><p>Chihuahua, Chih.</p></div><div><small>HORARIO</small><p>Lun — Dom · 7:00 — 21:00</p></div></div>
+          <a href="https://maps.google.com/?q=Chihuahua,+Chihuahua" target="_blank" rel="noreferrer" class="arrow-link">Abrir en Maps <span>↗</span></a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-brand">CAFÉ<br /><em>CHIHUAHUA</em></div>
+      <div class="footer-news"><p>Recibe las noticias de la barra.</p><form class="newsletter"><input type="email" placeholder="Tu correo electrónico" aria-label="Tu correo electrónico" required /><button aria-label="Suscribirme">→</button></form><small>Promesas simples: novedades, temporada y buen café.</small></div>
+      <div class="footer-links"><a href="#inicio">Instagram ↗</a><a href="#lealtad">Círculo Café</a><button class="js-open-admin" type="button">Administración</button></div>
+      <small class="copyright">© <span id="year"></span> CAFÉ CHIHUAHUA · HECHO EN EL NORTE</small>
+    </footer>
+
+    <dialog class="modal" id="admin-modal" aria-labelledby="admin-title">
+      <button class="modal-close" type="button" aria-label="Cerrar">×</button>
+      <div class="admin-modal-content">
+        <p class="eyebrow"><span></span> CRM CAFÉ CHIHUAHUA</p>
+        <h2 id="admin-title">Panel listo para<br /><em>personalizar.</em></h2>
+        <p>Esta es la entrada del administrador. La integración final conectará el inicio de sesión, las ventas del punto de venta y Google Wallet.</p>
+        <div class="admin-list"><span>Reglas de sellos y productos participantes</span><span>Cupones, campañas y regalos de cumpleaños</span><span>Segmentos y reportes de rendimiento</span><span>Google Wallet para tarjeta digital</span></div>
+        <button type="button" class="button button-dark js-close-modal">Cerrar vista previa <b>×</b></button>
+      </div>
+    </dialog>
+
+    <dialog class="modal" id="join-modal" aria-labelledby="join-title">
+      <button class="modal-close" type="button" aria-label="Cerrar">×</button>
+      <div class="join-modal-content">
+        <p class="eyebrow"><span></span> CÍRCULO CAFÉ CHIHUAHUA</p>
+        <h2 id="join-title">Tu tarjeta empieza<br /><em>con un café.</em></h2>
+        <form class="join-form">
+          <label>Nombre<input required placeholder="¿Cómo te llamas?" /></label>
+          <label>Correo<input type="email" required placeholder="tu@correo.com" /></label>
+          <label class="check"><input type="checkbox" required /> Quiero recibir promociones y noticias de temporada.</label>
+          <button class="button button-dark" type="submit">Crear mi tarjeta <b>↗</b></button>
+        </form>
+      </div>
+    </dialog>
+    <div class="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
