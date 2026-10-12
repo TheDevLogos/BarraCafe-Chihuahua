@@ -124,14 +124,28 @@
             <p>Compra bebidas participantes, junta sellos y disfruta una bebida de cortesía. Sin tarjeta física; todo vive en tu celular.</p>
             <button type="button" class="button button-cream js-join">Quiero unirme <b>↘</b></button>
           </div>
-          <div class="loyalty-card reveal" aria-label="Vista previa de tarjeta digital de lealtad">
-            <div class="card-top"><span>CAFÉ CHIHUAHUA</span><span>MI TARJETA</span></div>
-            <p class="card-name">HOLA, <b>FERNANDA</b></p>
-            <div class="stamps" aria-label="7 de 10 sellos">
-              <i class="filled">✦</i><i class="filled">✦</i><i class="filled">✦</i><i class="filled">✦</i><i class="filled">✦</i><i class="filled">✦</i><i class="filled">✦</i><i>✦</i><i>✦</i><i class="reward">☕</i>
+          <div class="loyalty-experience reveal" aria-label="Simulador de tarjeta digital de lealtad">
+            <div class="loyalty-card">
+              <div class="loyalty-card-header"><span class="card-brand">CAFÉ CHIHUAHUA</span><span class="card-status"><i></i> TARJETA ACTIVA</span></div>
+              <div class="card-member-row"><div><small>MIEMBRO</small><strong>FERNANDA R.</strong></div><span class="member-monogram">FR</span></div>
+              <div class="card-progress-panel">
+                <div class="progress-heading"><span>PROGRESO DE RECOMPENSA</span><strong><b id="stamp-count">7</b> <em>/ 10</em></strong></div>
+                <div class="stamp-track" aria-label="7 de 10 sellos"><i class="is-earned">1</i><i class="is-earned">2</i><i class="is-earned">3</i><i class="is-earned">4</i><i class="is-earned">5</i><i class="is-earned">6</i><i class="is-earned">7</i><i>8</i><i>9</i><i class="reward-stamp">☕</i></div>
+              </div>
+              <div class="card-reward"><div><small>TU PRÓXIMO BENEFICIO</small><strong id="reward-title">Faltan 3 sellos</strong></div><span id="reward-icon">03</span></div>
             </div>
-            <div class="card-bottom"><span>7 / 10 SELLOS</span><span>FALTAN 3 PARA TU BEBIDA</span></div>
-            <div class="card-wallet"><span class="wallet-g">G</span><span>Agregar a Google Wallet</span><b>→</b></div>
+            <div class="wallet-ready"><span class="wallet-g">G</span><div><strong>Google Wallet</strong><small>Tarjeta digital lista para guardar</small></div><b>→</b></div>
+            <div class="loyalty-simulator">
+              <div class="simulator-heading"><span>SIMULADOR DE VISITAS</span><small>Vista de demostración</small></div>
+              <p>Elige una bebida participante y suma una visita a tu tarjeta.</p>
+              <div class="drink-choices" role="group" aria-label="Bebidas participantes">
+                <button type="button" class="drink-choice selected" data-drink="Latte de la casa">Latte</button>
+                <button type="button" class="drink-choice" data-drink="Cold brew">Cold brew</button>
+                <button type="button" class="drink-choice" data-drink="Chai del desierto">Chai</button>
+              </div>
+              <div class="simulator-actions"><button type="button" class="button button-cream js-add-stamp">Sumar sello <b>+</b></button><button type="button" class="reset-stamps" aria-label="Reiniciar simulador">Reiniciar</button></div>
+              <p class="simulator-feedback" aria-live="polite">Latte de la casa seleccionado · 3 sellos para una bebida de cortesía.</p>
+            </div>
           </div>
         </div>
         <div class="loyalty-benefits section-pad">

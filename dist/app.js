@@ -35,6 +35,51 @@ document.querySelector('.js-play-story').addEventListener('click', () => {
   document.querySelector('#cafe').scrollIntoView({ behavior: 'smooth' });
 });
 
+let stamps = 7;
+let selectedDrink = 'Latte de la casa';
+const stampCount = document.querySelector('#stamp-count');
+const rewardTitle = document.querySelector('#reward-title');
+const rewardIcon = document.querySelector('#reward-icon');
+const stampItems = [...document.querySelectorAll('.stamp-track i')];
+const feedback = document.querySelector('.simulator-feedback');
+
+function updateLoyaltySimulator() {
+  const remaining = Math.max(10 - stamps, 0);
+  stampCount.textContent = Math.min(stamps, 10);
+  stampItems.forEach((stamp, index) => {
+    const earned = index < Math.min(stamps, 9);
+    stamp.classList.toggle('is-earned', earned);
+  });
+  if (stamps >= 10) {
+    rewardTitle.textContent = '¡Bebida de cortesía!';
+    rewardIcon.textContent = '☕';
+    rewardIcon.classList.add('is-redeemable');
+    feedback.textContent = `Tu ${selectedDrink} desbloqueó la recompensa. La siguiente bebida participante es cortesía de la casa.`;
+  } else {
+    rewardTitle.textContent = `Faltan ${remaining} sello${remaining === 1 ? '' : 's'}`;
+    rewardIcon.textContent = String(remaining).padStart(2, '0');
+    rewardIcon.classList.remove('is-redeemable');
+    feedback.textContent = `${selectedDrink} seleccionado · ${remaining} sello${remaining === 1 ? '' : 's'} para una bebida de cortesía.`;
+  }
+}
+
+$$('.drink-choice').forEach((choice) => choice.addEventListener('click', () => {
+  $$('.drink-choice').forEach((item) => item.classList.remove('selected'));
+  choice.classList.add('selected');
+  selectedDrink = choice.dataset.drink;
+  updateLoyaltySimulator();
+}));
+
+document.querySelector('.js-add-stamp').addEventListener('click', () => {
+  if (stamps < 10) stamps += 1;
+  updateLoyaltySimulator();
+});
+
+document.querySelector('.reset-stamps').addEventListener('click', () => {
+  stamps = 7;
+  updateLoyaltySimulator();
+});
+
 const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
   if (entry.isIntersecting) {
     entry.target.classList.add('in-view');
