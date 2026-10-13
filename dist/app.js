@@ -96,3 +96,42 @@ toggle.addEventListener('click', () => {
   toggle.setAttribute('aria-expanded', String(!expanded));
   nav.classList.toggle('open', !expanded);
 });
+
+// Demo funcional del panel administrativo.
+const crmLogin = document.querySelector('#crm-login');
+const crmWorkspace = document.querySelector('#crm-workspace');
+const crmLoginForm = document.querySelector('#crm-login-form');
+const crmSectionName = document.querySelector('#crm-section-name');
+const crmSidebar = document.querySelector('.crm-workspace');
+
+function openCrmPanel(panel = 'overview') {
+  $$('.crm-nav').forEach((item) => item.classList.toggle('active', item.dataset.panel === panel));
+  $$('[data-panel-content]').forEach((item) => item.classList.toggle('active', item.dataset.panelContent === panel));
+  const selected = document.querySelector(`.crm-nav[data-panel="${panel}"]`);
+  if (selected) crmSectionName.textContent = selected.textContent.replace(/\d+/g, '').trim();
+  crmSidebar.classList.remove('menu-open');
+  document.querySelector('.crm-main').scrollTop = 0;
+}
+
+crmLoginForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  crmLogin.hidden = true;
+  crmWorkspace.hidden = false;
+  openCrmPanel();
+  showToast('Sesión de demostración iniciada.');
+});
+
+$$('.crm-nav, [data-panel]').forEach((button) => button.addEventListener('click', () => {
+  const panel = button.dataset.panel;
+  if (panel) openCrmPanel(panel);
+}));
+
+document.querySelector('.crm-logout').addEventListener('click', () => {
+  crmWorkspace.hidden = true;
+  crmLogin.hidden = false;
+  showToast('Sesión cerrada.');
+});
+
+document.querySelector('.crm-mobile-menu').addEventListener('click', () => crmSidebar.classList.toggle('menu-open'));
+document.querySelector('.crm-wallet-card').addEventListener('click', () => showToast('Google Wallet está listo para conectar cuando se configure el emisor.'));
+document.querySelector('.crm-login-form .link-button').addEventListener('click', () => showToast('En la versión conectada podrás recuperar el acceso por correo.'));

@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="crm.css" />
   </head>
   <body>
     <div class="grain" aria-hidden="true"></div>
@@ -194,15 +195,66 @@
       <small class="copyright">© <span id="year"></span> CAFÉ CHIHUAHUA · HECHO EN EL NORTE</small>
     </footer>
 
-    <dialog class="modal" id="admin-modal" aria-labelledby="admin-title">
-      <button class="modal-close" type="button" aria-label="Cerrar">×</button>
-      <div class="admin-modal-content">
-        <p class="eyebrow"><span></span> CRM CAFÉ CHIHUAHUA</p>
-        <h2 id="admin-title">Panel listo para<br /><em>personalizar.</em></h2>
-        <p>Esta es la entrada del administrador. La integración final conectará el inicio de sesión, las ventas del punto de venta y Google Wallet.</p>
-        <div class="admin-list"><span>Reglas de sellos y productos participantes</span><span>Cupones, campañas y regalos de cumpleaños</span><span>Segmentos y reportes de rendimiento</span><span>Google Wallet para tarjeta digital</span></div>
-        <button type="button" class="button button-dark js-close-modal">Cerrar vista previa <b>×</b></button>
-      </div>
+    <dialog class="modal crm-modal" id="admin-modal" aria-labelledby="admin-title">
+      <button class="modal-close crm-close" type="button" aria-label="Cerrar administración">×</button>
+
+      <section class="crm-login" id="crm-login">
+        <div class="crm-login-art" aria-hidden="true">
+          <video autoplay muted loop playsinline><source src="assets/Latte Art.mp4" type="video/mp4" /></video>
+          <div class="crm-login-shade"></div>
+          <div class="crm-login-brand"><span class="brand-mark">C</span><b>CAFÉ<br />CHIHUAHUA</b></div>
+          <p>Detrás de cada bebida,<br /><em>una mejor visita.</em></p>
+          <small>CHIHUAHUA, CHIH. · MÉXICO</small>
+        </div>
+        <form class="crm-login-form" id="crm-login-form">
+          <p class="eyebrow"><span></span> ADMINISTRACIÓN</p>
+          <h2 id="admin-title">Bienvenido<br /><em>de vuelta.</em></h2>
+          <p>Gestiona la barra, tu comunidad y las recompensas desde un solo lugar.</p>
+          <label>Correo de trabajo<input type="email" placeholder="nombre@cafechihuahua.mx" required /></label>
+          <label>Contraseña<input type="password" placeholder="Ingresa tu contraseña" required /></label>
+          <div class="crm-login-row"><label class="check"><input type="checkbox" checked /> Recordar este equipo</label><button type="button" class="link-button">¿Olvidaste tu contraseña?</button></div>
+          <button class="crm-login-button" type="submit">Entrar al panel <b>→</b></button>
+          <small class="demo-note">Vista de demostración · Acceso seguro listo para conectar</small>
+        </form>
+      </section>
+
+      <section class="crm-workspace" id="crm-workspace" hidden aria-label="Panel administrativo">
+        <aside class="crm-sidebar">
+          <div class="crm-side-brand"><span class="brand-mark">C</span><b>CAFÉ<br />CHIHUAHUA</b></div>
+          <p>OPERACIÓN</p>
+          <button class="crm-nav active" type="button" data-panel="overview"><span>◫</span> Resumen</button>
+          <button class="crm-nav" type="button" data-panel="customers"><span>◎</span> Clientes <b>128</b></button>
+          <button class="crm-nav" type="button" data-panel="campaigns"><span>✦</span> Campañas</button>
+          <p>LEALTAD</p>
+          <button class="crm-nav" type="button" data-panel="rewards"><span>◌</span> Sellos y premios</button>
+          <button class="crm-nav" type="button" data-panel="products"><span>◒</span> Productos</button>
+          <button class="crm-nav" type="button" data-panel="reports"><span>⌁</span> Reportes</button>
+          <div class="crm-sidebar-bottom"><button type="button" class="crm-wallet-card"><i>G</i><span><b>Google Wallet</b><small>Listo para conectar</small></span><em>→</em></button><button type="button" class="crm-logout">Salir <span>↗</span></button></div>
+        </aside>
+
+        <main class="crm-main">
+          <header class="crm-topbar"><button type="button" class="crm-mobile-menu" aria-label="Abrir menú">☰</button><div class="crm-breadcrumb"><span>PANEL</span><b id="crm-section-name">Resumen</b></div><div class="crm-user"><button class="crm-search" type="button" aria-label="Buscar">⌕</button><span class="crm-avatar">AV</span><div><b>Alonso</b><small>Administrador</small></div><i>⌄</i></div></header>
+
+          <section class="crm-panel active" data-panel-content="overview">
+            <div class="crm-heading"><div><p>DOMINGO, 12 DE OCTUBRE</p><h2>Buenos días, <em>Alonso.</em></h2><span>Así se mueve la barra hoy.</span></div><button class="crm-primary-action" type="button" data-panel="campaigns">+ Nueva campaña</button></div>
+            <div class="crm-metrics-grid"><article><span class="crm-metric-icon">$</span><small>VENTAS DE HOY</small><strong>$4,860</strong><em>↑ 12.4% <i>vs. ayer</i></em></article><article><span class="crm-metric-icon">◒</span><small>TICKET PROMEDIO</small><strong>$118</strong><em>↑ 4.8% <i>vs. semana anterior</i></em></article><article><span class="crm-metric-icon">◎</span><small>CLIENTES RECURRENTES</small><strong>68%</strong><em>↑ 9.1% <i>este mes</i></em></article><article><span class="crm-metric-icon">✦</span><small>RECOMPENSAS CANJEADAS</small><strong>24</strong><em>↑ 18.0% <i>esta semana</i></em></article></div>
+            <div class="crm-insights-grid"><article class="crm-card crm-sales-card"><div class="crm-card-top"><div><small>VENTAS</small><h3>$24,860 <em>↑ 12.4%</em></h3></div><div class="crm-period"><button class="active">7 días</button><button>Mes</button></div></div><div class="crm-chart"><div class="chart-grid-lines"></div><div class="chart-columns"><i style="height:42%"><b>$2.6k</b><span>LUN</span></i><i style="height:55%"><b>$3.1k</b><span>MAR</span></i><i style="height:48%"><b>$2.9k</b><span>MIÉ</span></i><i style="height:75%"><b>$4.2k</b><span>JUE</span></i><i style="height:63%"><b>$3.7k</b><span>VIE</span></i><i class="today" style="height:91%"><b>$5.1k</b><span>SÁB</span></i><i style="height:67%"><b>$4.0k</b><span>DOM</span></i></div></div></article>
+              <article class="crm-card crm-goal-card"><div class="goal-orbit"><strong>72<span>%</span></strong><small>META<br />SEMANAL</small></div><h3>$32,400 <span>de $45,000</span></h3><p>Vas $3,180 arriba de la misma semana anterior.</p><button type="button" data-panel="reports">Ver reporte completo →</button></article></div>
+            <div class="crm-bottom-grid"><article class="crm-card crm-table-card"><div class="crm-card-title"><div><h3>Últimas visitas</h3><p>Movimientos registrados hoy</p></div><button data-panel="customers" type="button">Ver clientes →</button></div><div class="crm-mini-table"><div class="crm-table-row table-head"><span>CLIENTE</span><span>COMPRA</span><span>SELLOS</span><span>TOTAL</span></div><div class="crm-table-row"><span><i class="customer-dot peach">FR</i> Fernanda Ruiz</span><span>Latte + Croissant</span><span><b>+1</b></span><strong>$130</strong></div><div class="crm-table-row"><span><i class="customer-dot blue">MP</i> Mariana P.</span><span>Cold Brew</span><span><b>+1</b></span><strong>$75</strong></div><div class="crm-table-row"><span><i class="customer-dot gold">JD</i> José Díaz</span><span>Chai del desierto</span><span><b>+1</b></span><strong>$72</strong></div></div></article>
+              <article class="crm-card crm-campaign-card"><div class="campaign-chip">ACTIVA · TERMINA EN 5 DÍAS</div><h3>Frío otra vez.<br /><em>Sello doble.</em></h3><p>Cold brew y bebidas frías acumulan doble sello de lunes a jueves.</p><div><span><b>348</b> envíos</span><span><b>128</b> canjes</span><span><b>$9.6k</b> ventas</span></div><button type="button" data-panel="campaigns">Ver campaña →</button></article></div>
+          </section>
+
+          <section class="crm-panel" data-panel-content="customers"><div class="crm-heading"><div><p>COMUNIDAD</p><h2>Clientes <em>que regresan.</em></h2><span>128 miembros activos del Círculo Café.</span></div><button class="crm-primary-action" type="button">+ Nuevo cliente</button></div><div class="crm-card crm-directory"><div class="crm-directory-tools"><div class="crm-input-search">⌕ <input placeholder="Buscar por nombre, correo o teléfono" /></div><button>Todos los clientes⌄</button><button>Filtrar ⌄</button></div><div class="crm-customer-list"><div class="crm-list-head"><span>CLIENTE</span><span>FRECUENCIA</span><span>FAVORITO</span><span>PROGRESO</span><span>ÚLTIMA VISITA</span></div><div class="crm-list-row"><span><i class="customer-dot peach">FR</i><b>Fernanda Ruiz<small>fernanda@correo.com</small></b></span><span>12 visitas</span><span>Latte de la casa</span><span><em class="stamp-pips">● ● ● ● ● ● ● <i>○ ○ ○</i></em></span><span>Hoy, 10:42</span></div><div class="crm-list-row"><span><i class="customer-dot blue">MP</i><b>Mariana Pérez<small>mariana@correo.com</small></b></span><span>9 visitas</span><span>Cold brew</span><span><em class="stamp-pips">● ● ● ● ● <i>○ ○ ○ ○ ○</i></em></span><span>Hoy, 09:55</span></div><div class="crm-list-row"><span><i class="customer-dot gold">JD</i><b>José Díaz<small>jose@correo.com</small></b></span><span>18 visitas</span><span>Chai del desierto</span><span><em class="stamp-pips">● ● ● ● ● ● ● ● ● <i>○</i></em></span><span>Ayer, 18:30</span></div><div class="crm-list-row"><span><i class="customer-dot green">LM</i><b>Lucía Méndez<small>lucia@correo.com</small></b></span><span>6 visitas</span><span>Americano</span><span><em class="stamp-pips">● ● ● <i>○ ○ ○ ○ ○ ○ ○</i></em></span><span>11 oct, 12:16</span></div></div></div></section>
+
+          <section class="crm-panel" data-panel-content="campaigns"><div class="crm-heading"><div><p>MENSAJES QUE SÍ REGRESAN</p><h2>Campañas y <em>promociones.</em></h2><span>Planea, segmenta y mide cada incentivo.</span></div><button class="crm-primary-action" type="button">+ Crear campaña</button></div><div class="crm-campaigns-layout"><article class="crm-card campaign-feature"><span>ACTIVA</span><h3>Frío otra vez.<br /><em>Sello doble.</em></h3><p>Para clientes que visitaron la barra al menos una vez durante los últimos 30 días.</p><div class="campaign-feature-stats"><b>348<small>ENVIOS</small></b><b>128<small>CANJES</small></b><b>$9,600<small>VENTAS</small></b></div><button>Editar campaña →</button></article><article class="crm-card campaign-list"><div class="crm-card-title"><div><h3>Próximas y recientes</h3><p>Programadas por fecha</p></div></div><div><i class="campaign-state scheduled">PROGRAMADA</i><b>Cumpleaños con bebida de regalo</b><span>Inicia automáticamente · 24 oct</span></div><div><i class="campaign-state draft">BORRADOR</i><b>Especial V60 de octubre</b><span>Segmento: amantes de filtrados</span></div><div><i class="campaign-state finished">FINALIZADA</i><b>Regreso a clases</b><span>142 canjes · $11,340 ventas</span></div></article></div></section>
+
+          <section class="crm-panel" data-panel-content="rewards"><div class="crm-heading"><div><p>PROGRAMA DE LEALTAD</p><h2>Sellos que se <em>vuelven visitas.</em></h2><span>Reglas editables sin depender de desarrollo.</span></div><button class="crm-primary-action" type="button">+ Nueva recompensa</button></div><div class="crm-rewards-layout"><article class="crm-card reward-rule"><div class="reward-rule-top"><span>REGLA ACTIVA</span><button>Editar</button></div><h3>10 compras participantes<br /><em>= 1 bebida de cortesía</em></h3><p>Aplicable a bebidas calientes, frías y de temporada.</p><div class="rule-products"><span>Latte</span><span>Cold brew</span><span>Chai</span><span>Americano</span><span>+ 6 productos</span></div><div class="reward-rule-footer"><span><b>842</b> sellos emitidos</span><span><b>24</b> premios canjeados</span></div></article><article class="crm-card birthday-card"><span>♥ AUTOMÁTICO</span><h3>Un detalle<br />en su cumpleaños.</h3><p>Envía un cupón de bebida chica sin costo durante su mes de cumpleaños.</p><div><b>16</b> próximos cumpleaños <button>Configurar →</button></div></article></div></section>
+
+          <section class="crm-panel" data-panel-content="products"><div class="crm-heading"><div><p>CATÁLOGO DE BARRA</p><h2>Lo que se <em>sirve hoy.</em></h2><span>Define precio, categoría y si suma sellos.</span></div><button class="crm-primary-action" type="button">+ Agregar producto</button></div><div class="crm-product-toolbar"><button class="active">Todos</button><button>Calientes</button><button>Frías</button><button>Temporada</button></div><div class="crm-products-grid"><article class="crm-product-card hot"><span>CALIENTE</span><div>☕</div><h3>Latte de la casa</h3><p>Espresso · Leche sedosa</p><footer><b>$65</b><em>✓ Suma sello</em></footer></article><article class="crm-product-card cold"><span>FRÍA</span><div>🧊</div><h3>Cold brew de vainilla</h3><p>12 h de extracción · Vainilla</p><footer><b>$75</b><em>✓ Suma sello</em></footer></article><article class="crm-product-card season"><span>TEMPORADA</span><div>✦</div><h3>Chai del desierto</h3><p>Especias · Leche · Canela</p><footer><b>$72</b><em>✓ Suma sello</em></footer></article><article class="crm-product-card hot"><span>CALIENTE</span><div>◐</div><h3>Americano</h3><p>Doble espresso · Agua</p><footer><b>$45</b><em>✓ Suma sello</em></footer></article></div></section>
+
+          <section class="crm-panel" data-panel-content="reports"><div class="crm-heading"><div><p>INTELIGENCIA DE LA BARRA</p><h2>Datos para <em>decidir mejor.</em></h2><span>Desempeño de ventas, lealtad y campañas.</span></div><button class="crm-primary-action" type="button">Descargar reporte ↓</button></div><div class="crm-report-grid"><article class="crm-card"><small>PRODUCTO MÁS VENDIDO</small><h3>Latte de la casa</h3><strong>286 <em>bebidas este mes</em></strong><div class="mini-progress"><i style="width:88%"></i></div></article><article class="crm-card"><small>MEJOR CAMPAÑA</small><h3>Frío otra vez</h3><strong>36.8% <em>tasa de canje</em></strong><div class="mini-progress orange"><i style="width:72%"></i></div></article><article class="crm-card"><small>NUEVOS CLIENTES</small><h3>Este mes</h3><strong>42 <em>altas en el Círculo</em></strong><div class="mini-progress green"><i style="width:61%"></i></div></article></div></section>
+        </main>
+      </section>
     </dialog>
 
     <dialog class="modal" id="join-modal" aria-labelledby="join-title">
