@@ -125,7 +125,7 @@
             <p>Compra bebidas participantes, junta sellos y disfruta una bebida de cortesía. Sin tarjeta física; todo vive en tu celular.</p>
             <button type="button" class="button button-cream js-join">Quiero unirme <b>↘</b></button>
           </div>
-          <div class="loyalty-experience reveal" aria-label="Simulador de tarjeta digital de lealtad">
+          <div class="loyalty-experience reveal" aria-label="Tarjeta digital de lealtad">
             <div class="loyalty-card">
               <div class="loyalty-card-header"><span class="card-brand">CAFÉ CHIHUAHUA</span><span class="card-status"><i></i> TARJETA ACTIVA</span></div>
               <div class="card-member-row"><div><small>MIEMBRO</small><strong>FERNANDA R.</strong></div><span class="member-monogram">FR</span></div>
@@ -137,14 +137,14 @@
             </div>
               <div class="wallet-ready"><span class="wallet-g">G</span><div><strong>Google Wallet</strong><small>Integración pendiente de configurar</small></div><b>→</b></div>
             <div class="loyalty-simulator">
-              <div class="simulator-heading"><span>SIMULADOR DE VISITAS</span><small>Vista de demostración</small></div>
+              <div class="simulator-heading"><span>TU TARJETA DE LEALTAD</span><small>Prueba cómo avanza</small></div>
               <p>Elige una bebida participante y suma una visita a tu tarjeta.</p>
               <div class="drink-choices" role="group" aria-label="Bebidas participantes">
                 <button type="button" class="drink-choice selected" data-drink="Latte de la casa">Latte</button>
                 <button type="button" class="drink-choice" data-drink="Cold brew">Cold brew</button>
                 <button type="button" class="drink-choice" data-drink="Chai del desierto">Chai</button>
               </div>
-              <div class="simulator-actions"><button type="button" class="button button-cream js-add-stamp">Sumar sello <b>+</b></button><button type="button" class="reset-stamps" aria-label="Reiniciar simulador">Reiniciar</button></div>
+              <div class="simulator-actions"><button type="button" class="button button-cream js-add-stamp">Sumar sello <b>+</b></button><button type="button" class="reset-stamps" aria-label="Reiniciar progreso">Reiniciar</button></div>
               <p class="simulator-feedback" aria-live="polite">Latte de la casa seleccionado · 3 sellos para una bebida de cortesía.</p>
             </div>
           </div>
@@ -195,28 +195,8 @@
       <small class="copyright">© <span id="year"></span> CAFÉ CHIHUAHUA · HECHO EN EL NORTE</small>
     </footer>
 
-    <dialog class="modal crm-modal" id="admin-modal" aria-labelledby="admin-title">
+    <dialog class="modal crm-modal" id="admin-modal" aria-label="Administración Café Chihuahua">
       <button class="modal-close crm-close" type="button" aria-label="Cerrar administración">×</button>
-
-      <section class="crm-login" id="crm-login">
-        <div class="crm-login-art" aria-hidden="true">
-          <video autoplay muted loop playsinline><source src="assets/Latte Art.mp4" type="video/mp4" /></video>
-          <div class="crm-login-shade"></div>
-          <div class="crm-login-brand"><span class="brand-mark">C</span><b>CAFÉ<br />CHIHUAHUA</b></div>
-          <p>Detrás de cada bebida,<br /><em>una mejor visita.</em></p>
-          <small>CHIHUAHUA, CHIH. · MÉXICO</small>
-        </div>
-        <form class="crm-login-form" id="crm-login-form" novalidate>
-          <p class="eyebrow"><span></span> ADMINISTRACIÓN</p>
-          <h2 id="admin-title">Bienvenido<br /><em>de vuelta.</em></h2>
-          <p>Gestiona la barra, tu comunidad y las recompensas desde un solo lugar.</p>
-          <label>Correo de trabajo<input name="demoEmail" type="text" inputmode="email" autocomplete="username" placeholder="Escribe cualquier correo" required /></label>
-          <label>Contraseña<input name="demoPassword" type="password" autocomplete="current-password" placeholder="Escribe cualquier contraseña" required /></label>
-          <button class="crm-login-button" type="submit">Entrar al panel <b>→</b></button>
-          <small class="demo-note">Modo demostración: escribe cualquier correo y contraseña no vacíos. Los datos se guardan solo en este navegador.</small>
-        </form>
-      </section>
-
       <section class="crm-workspace" id="crm-workspace" hidden aria-label="Panel administrativo">
         <aside class="crm-sidebar">
           <div class="crm-side-brand"><span class="brand-mark">C</span><b>CAFÉ<br />CHIHUAHUA</b></div>
@@ -229,11 +209,11 @@
           <button class="crm-nav" type="button" data-panel="rewards"><span>◌</span> Sellos y premios</button>
           <button class="crm-nav" type="button" data-panel="products"><span>◒</span> Productos</button>
           <button class="crm-nav" type="button" data-panel="reports"><span>⌁</span> Reportes</button>
-          <div class="crm-sidebar-bottom"><button type="button" class="crm-wallet-card"><i>G</i><span><b>Google Wallet</b><small>Integración futura</small></span><em>→</em></button><button type="button" class="crm-logout">Salir <span>↗</span></button></div>
+          <div class="crm-sidebar-bottom"><button type="button" class="crm-wallet-card"><i>G</i><span><b>Google Wallet</b><small>Integración futura</small></span><em>→</em></button><button type="button" class="crm-logout">Cerrar panel <span>↗</span></button></div>
         </aside>
 
         <main class="crm-main">
-          <header class="crm-topbar"><button type="button" class="crm-mobile-menu" aria-label="Abrir menú">☰</button><div class="crm-breadcrumb"><span>PANEL</span><b id="crm-section-name">Resumen</b></div><span class="crm-demo-indicator"><i></i> Demo · datos locales</span><div class="crm-user"><span class="crm-avatar">CC</span><div><b>Equipo de barra</b><small>Modo demostración</small></div></div></header>
+          <header class="crm-topbar"><button type="button" class="crm-mobile-menu" aria-label="Abrir menú">☰</button><div class="crm-breadcrumb"><span>PANEL</span><b id="crm-section-name">Resumen</b></div><span class="crm-demo-indicator"><i></i> Datos guardados en este navegador</span><div class="crm-user"><span class="crm-avatar">CC</span><div><b>Equipo de barra</b><small>Administración</small></div></div></header>
 
           <section class="crm-panel active" data-panel-content="overview">
             <div class="crm-heading"><div><p>DOMINGO, 12 DE OCTUBRE</p><h2>Buenos días, <em>Alonso.</em></h2><span>Así se mueve la barra hoy.</span></div><button class="crm-primary-action" type="button" data-panel="campaigns">+ Nueva campaña</button></div>
