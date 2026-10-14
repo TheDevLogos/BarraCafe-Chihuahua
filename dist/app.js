@@ -18,6 +18,7 @@ function showToast(message) {
 function seedData() {
   const now = new Date();
   const daysAgo = (days) => new Date(now.getFullYear(), now.getMonth(), now.getDate() - days, 10 + days % 8, 15).toISOString();
+  const birthdayThisMonth = (day) => new Date(now.getFullYear(), now.getMonth(), day).toISOString().slice(0, 10);
   const products = [
     { id: 'latte', name: 'Latte de la casa', category: 'Caliente', price: 65, stamps: true, active: true, icon: '☕', description: 'Espresso · Leche sedosa' },
     { id: 'americano', name: 'Americano', category: 'Caliente', price: 45, stamps: true, active: true, icon: '◐', description: 'Doble espresso · Agua' },
@@ -27,8 +28,8 @@ function seedData() {
     { id: 'v60', name: 'V60 de temporada', category: 'Temporada', price: 82, stamps: false, active: true, icon: '◒', description: 'Filtrado del día' },
   ];
   const customers = [
-    { id: 'c1', name: 'Fernanda Ruiz', email: 'fernanda@example.test', phone: '', birthday: '', favorite: 'Latte de la casa', joined: daysAgo(80), stamps: 7, visits: 12, consent: true },
-    { id: 'c2', name: 'Mariana Pérez', email: 'mariana@example.test', phone: '', birthday: '', favorite: 'Cold brew de vainilla', joined: daysAgo(63), stamps: 5, visits: 9, consent: true },
+    { id: 'c1', name: 'Fernanda Ruiz', email: 'fernanda@example.test', phone: '', birthday: birthdayThisMonth(21), favorite: 'Latte de la casa', joined: daysAgo(80), stamps: 7, visits: 12, consent: true },
+    { id: 'c2', name: 'Mariana Pérez', email: 'mariana@example.test', phone: '', birthday: birthdayThisMonth(27), favorite: 'Cold brew de vainilla', joined: daysAgo(63), stamps: 5, visits: 9, consent: true },
     { id: 'c3', name: 'José Díaz', email: 'jose@example.test', phone: '', birthday: '', favorite: 'Chai del desierto', joined: daysAgo(120), stamps: 9, visits: 18, consent: true },
     { id: 'c4', name: 'Lucía Méndez', email: 'lucia@example.test', phone: '', birthday: '', favorite: 'Americano', joined: daysAgo(42), stamps: 3, visits: 6, consent: false },
   ];
@@ -238,7 +239,7 @@ function simulateCampaign(id) {
   campaign.sends += eligible; saveData(); renderPanel('campaigns'); showToast(`${eligible} envíos de demostración preparados. No se mandó ningún mensaje.`);
 }
 function downloadReport() {
-  const rows = [['fecha','cliente','producto','cantidad','importe_mxn','sellos','cupon','recompensa_can-jeada'], ...data.sales.map((s) => [new Date(s.date).toISOString(), customerById(s.customerId)?.name || 'Cliente sin registro', s.productName, s.quantity, s.amount, s.stamps, s.coupon, s.rewardRedeemed ? 'sí' : 'no'])];
+  const rows = [['fecha','cliente','producto','cantidad','importe_mxn','sellos','cupon','recompensa_canjeada'], ...data.sales.map((s) => [new Date(s.date).toISOString(), customerById(s.customerId)?.name || 'Cliente sin registro', s.productName, s.quantity, s.amount, s.stamps, s.coupon, s.rewardRedeemed ? 'sí' : 'no'])];
   const csv = '\uFEFF' + rows.map((row) => row.map((cell) => `"${String(cell).replaceAll('"','""')}"`).join(',')).join('\r\n');
   const url = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8' })); const link = document.createElement('a'); link.href = url; link.download = 'cafe-chihuahua-reporte-demo.csv'; link.click(); URL.revokeObjectURL(url); showToast('Reporte CSV descargado.');
 }
@@ -295,7 +296,6 @@ $$('.crm-nav').forEach((button) => button.addEventListener('click', () => naviga
 $('.crm-logout').addEventListener('click', () => { crmWorkspace.hidden = true; crmLogin.hidden = false; crmLoginForm.reset(); showToast('Sesión de demostración cerrada.'); });
 $('.crm-mobile-menu').addEventListener('click', () => crmSidebar.classList.toggle('menu-open'));
 $('.crm-wallet-card').addEventListener('click', () => showToast('Google Wallet está en la siguiente fase; aún no se emiten tarjetas.'));
-$('.crm-login-form .link-button').addEventListener('click', () => showToast('En esta demo no hay recuperación de contraseña.'));
 
 crmWorkspace.addEventListener('click', (event) => {
   const button = event.target.closest('[data-action], [data-panel]'); if (!button) return;
