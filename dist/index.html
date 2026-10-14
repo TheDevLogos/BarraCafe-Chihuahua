@@ -206,14 +206,14 @@
           <p>Detrás de cada bebida,<br /><em>una mejor visita.</em></p>
           <small>CHIHUAHUA, CHIH. · MÉXICO</small>
         </div>
-        <form class="crm-login-form" id="crm-login-form">
+        <form class="crm-login-form" id="crm-login-form" novalidate>
           <p class="eyebrow"><span></span> ADMINISTRACIÓN</p>
           <h2 id="admin-title">Bienvenido<br /><em>de vuelta.</em></h2>
           <p>Gestiona la barra, tu comunidad y las recompensas desde un solo lugar.</p>
-          <label>Correo de trabajo<input type="email" placeholder="nombre@cafechihuahua.mx" required /></label>
-          <label>Contraseña<input type="password" placeholder="Ingresa tu contraseña" required /></label>
+          <label>Correo de trabajo<input name="demoEmail" type="text" inputmode="email" autocomplete="username" placeholder="Escribe cualquier correo" required /></label>
+          <label>Contraseña<input name="demoPassword" type="password" autocomplete="current-password" placeholder="Escribe cualquier contraseña" required /></label>
           <button class="crm-login-button" type="submit">Entrar al panel <b>→</b></button>
-          <small class="demo-note">Modo demostración: escribe cualquier correo válido y una contraseña. Los datos se guardan solo en este navegador.</small>
+          <small class="demo-note">Modo demostración: escribe cualquier correo y contraseña no vacíos. Los datos se guardan solo en este navegador.</small>
         </form>
       </section>
 

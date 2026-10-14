@@ -286,11 +286,11 @@ toggle.addEventListener('click', () => { const expanded = toggle.getAttribute('a
 
 crmLoginForm.addEventListener('submit', (event) => {
   event.preventDefault();
-  const email = $('input[type="email"]', crmLoginForm).value.trim(); const password = $('input[type="password"]', crmLoginForm).value;
-  if (!email || !password) { showToast('Escribe cualquier correo y contraseña para abrir la demo.'); return; }
+  const email = $('input[name="demoEmail"]', crmLoginForm).value.trim(); const password = $('input[name="demoPassword"]', crmLoginForm).value.trim();
+  if (!email || !password) { showToast('Escribe cualquier texto en los dos campos para abrir la demo.'); return; }
   sessionName = email.includes('@') ? email.split('@')[0].replace(/[._-]/g, ' ').replace(/\b\w/g, (letter) => letter.toUpperCase()) : 'Equipo de barra';
   $('.crm-user b').textContent = sessionName; $('.crm-user small').textContent = 'Modo demostración';
-  crmLogin.hidden = true; crmWorkspace.hidden = false; renderPanel('overview'); showToast('Demo abierta. Cualquier correo y contraseña no vacíos funcionan.');
+  crmLogin.hidden = true; crmWorkspace.hidden = false; renderPanel('overview'); showToast('Demo abierta. No se verifican ni se guardan tus credenciales.');
 });
 $$('.crm-nav').forEach((button) => button.addEventListener('click', () => navigate(button.dataset.panel)));
 $('.crm-logout').addEventListener('click', () => { crmWorkspace.hidden = true; crmLogin.hidden = false; crmLoginForm.reset(); showToast('Sesión de demostración cerrada.'); });
